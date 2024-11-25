@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../styles/HeroSection.css';
+import { VelocityScroll } from './ui/velo-scroll.tsx';
 
 
 const HeroSection = () => {
@@ -17,14 +18,8 @@ const HeroSection = () => {
         <div className="hero-section">
             <div className="hero-container">
                 <div className="hero-title-section">
+                    <VelocityScroll default_velocity='5' className='hero-title-section-text' text='Redefining How Peoples Find Their Dream Home.'/>
                     
-                    <h1>
-                        Redefining how
-                        <br />
-                        people find their
-                        <br />
-                        Dream homes
-                    </h1>
                     
                 </div>
 

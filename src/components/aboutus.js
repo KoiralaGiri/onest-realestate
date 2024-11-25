@@ -5,6 +5,7 @@ import TeamSection from './TeamSection.js';
 import { motion } from 'framer-motion';
 import TeamImg from '../images/image0.jpg'
 import Mission from '../images/158728567_34b7cafe-f88f-45de-8848-c8b796a9c23b.jpg'
+import { VelocityScroll } from './ui/velo-scroll.tsx';
 
 import '../styles/AboutUs.css';
 import img1 from '../images/269369785_11088644.png'
