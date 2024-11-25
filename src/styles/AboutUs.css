@@ -1,0 +1,357 @@
+.aboutus-main {
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    top: -50px;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 115vh;
+    overflow: hidden;
+    margin-top: -100px; /* This will pull the hero section up behind the navbar */
+    z-index: 1;
+    border-radius: 15px;
+    
+    
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
+    z-index: 3;
+    padding-top: 80px; /* Add padding to offset the negative margin */
+}
+
+.text-container {
+    opacity: 0;
+    animation: slideUp 1s ease-out forwards;
+    text-align: center;
+}
+
+.main-text-container {
+    margin-bottom: 2rem;
+}
+
+.main-heading {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    opacity: 0;
+}
+
+.italics {
+    font-style: italic;
+    font-weight: 400;
+}
+
+.first {
+    animation: fadeIn 0.8s ease-out forwards;
+    font-weight: 700;
+}
+
+.second {
+    animation: fadeIn 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+    font-weight: 600;
+}
+
+.line-animation {
+    height: 4px;
+    width: 100px;
+    background-color: #b68319;
+    margin: 2rem auto;
+    animation: drawLine 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+}
+
+.button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 3rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    font-size: 0.8rem;
+    border-radius: 7px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 550;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #b68319;
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #c9a760;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Content Sections */
+.content-section {
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 4;
+    background-color: white;
+}
+
+.section-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 5rem;
+    align-items: flex-start;
+}
+
+.section-container.reverse {
+    flex-direction: row-reverse;
+}
+
+.text-section {
+    flex: 1;
+}
+
+.section-header {
+    margin-bottom: 2rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.gold-line {
+    width: 6rem;
+    height: 2px;
+    background-color: #C69749;
+}
+
+.text-section p {
+    color: #4B5563;
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.btn-outline {
+    color: black;
+    border: 1px solid black;
+    background: transparent;
+}
+
+.btn-outline:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Content Image Styles with Parallax */
+.content-img-wrapper {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    aspect-ratio: 4/3;
+}
+
+.content-img {
+    position: absolute;
+    top: -20%;
+    left: 0;
+    width: 100%;
+    height: 140%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    will-change: transform;
+    transition: transform 0.1s linear;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from {
+        transform: translateY(60px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes drawLine {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .main-heading {
+        font-size: 3rem;
+    }
+
+    .section-container {
+        flex-direction: column;
+    }
+    
+    .section-container.reverse {
+        flex-direction: column;
+    }
+    
+    .content-img-wrapper {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .main-heading {
+        font-size: 2rem;
+    }
+    
+    .hero-content {
+        padding: 0 1rem;
+    }
+    
+    .button-group {
+        flex-direction: column;
+    }
+
+    .hero-section {
+        margin-top: -60px; /* Adjust for smaller navbar on mobile */
+    }
+
+    .hero-content {
+        padding-top: 60px; /* Match the margin adjustment */
+    }
+}
+
+.join-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 120px;
+    gap: 60px;
+    background-color: #b68319;
+    border-radius: 15px;
+  }
+  
+  .join-content {
+    flex: 1;
+    max-width: 500px;
+  }
+  
+  .join-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 24px;
+  }
+  
+  .join-description {
+    color: white;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  
+  .explore-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: none;
+    border: 1px solid #D1D5DB;
+    border-radius: 9999px;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .explore-button:hover {
+    background: #C69749;
+    transform: scale(1.05);
+  }
+  
+  .join-image-container {
+    flex: 1;
+    max-width: 600px;
+  }
+  
+  .join-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(232, 229, 229, 0.901),
+                0 2px 4px -1px rgba(244, 243, 243, 0.06);
+  }
+  
+  @media (max-width: 1024px) {
+    .join-section {
+      flex-direction: column;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    
+    .join-content {
+      max-width: 100%;
+    }
+    
+    .join-image-container {
+      max-width: 100%;
+      order: -1;
+    }
+  }
