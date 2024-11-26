@@ -280,7 +280,7 @@
 
   .why-onest-section {
     position: relative;
-    background: linear-gradient(to bottom, #f9fafb, #ffffff, #f9fafb);
+    background: linear-gradient(to bottom, #dccba8, #c9a760, #dccba8);
     overflow: hidden;
     padding: 6rem 1.5rem;
   }
@@ -301,13 +301,14 @@
   .why-onest-header {
     text-align: center;
     margin-bottom: 5rem;
+    color: white;
   }
   
   .why-onest-subtitle {
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: #B8860B;
+    color: white;
     font-weight: 600;
     margin-bottom: 1rem;
   }
@@ -317,14 +318,14 @@
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1.5rem;
-    background: linear-gradient(to right, #b68319, #c9a760);
+    background: linear-gradient(to right, hsl(0, 4%, 95%), #fbfaf9);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
   }
   
   .why-onest-description {
-    color: #b68319;
+    color: white;
     font-size: 1.125rem;
     max-width: 36rem;
     margin: 0 auto;

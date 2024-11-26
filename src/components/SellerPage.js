@@ -7,6 +7,8 @@ import img1 from '../images/rb_28181.png'
 import img2 from '../images/rb_26789.png'
 import img3 from '../images/rb_26955.png'
 import img4 from '../images/rb_26846.png'
+import './SmartSellingSolutions.js'
+import SmartSellingSolutions from './SmartSellingSolutions.js';
 
 const Particle = ({ index }) => {
   const [position, setPosition] = useState({
@@ -168,6 +170,7 @@ const SellerPage = () => {
           </div>
         </div>
       </section>
+      <SmartSellingSolutions />
     </div>
   );
 };
