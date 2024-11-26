@@ -79,14 +79,21 @@
     gap: 12px;
     color: white;
 }
+.card:hover {
+    background-color: #cba145;
+}
+.card:hover .card-icon {
+    transform: rotate(360deg);
+    transition: transform 0.8s ease-in-out;
+}
 
 .wide-card {
     width: 416px;
 }
 
 .card-icon {
-    width: 24px;
-    height: 24px;
+    width: 26px;
+    height: 26px;
     fill: currentColor;
 }
 
