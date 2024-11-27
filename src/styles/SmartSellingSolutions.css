@@ -87,8 +87,9 @@
 
 .resources-grid {
     display: grid;
+    flex-direction: row;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
+    gap: 1.5rem;
     padding: 1rem;
 }
 

@@ -6,6 +6,7 @@ import {
   Megaphone 
 } from 'lucide-react';
 import '../styles/SmartSellingSolutions.css';
+import HomeValueCalculator from './home-value-calculator.tsx';
 
 const ResourceCard = ({ icon: Icon, title, description, linkText }) => {
   return (
@@ -76,7 +77,9 @@ const SmartSellingSolutions = () => {
           </p>
         </motion.div>
 
-        <div className="resources-grid">
+        
+      </div>
+      <div className="resources-grid">
           {resources.map((resource, index) => (
             <ResourceCard
               key={index}
@@ -87,7 +90,6 @@ const SmartSellingSolutions = () => {
             />
           ))}
         </div>
-      </div>
     </section>
   );
 };

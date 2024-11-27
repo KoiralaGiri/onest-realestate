@@ -9,6 +9,7 @@ import img3 from '../images/rb_26955.png'
 import img4 from '../images/rb_26846.png'
 import './SmartSellingSolutions.js'
 import SmartSellingSolutions from './SmartSellingSolutions.js';
+import HomeValueCalculator from './home-value-calculator.tsx';
 
 const Particle = ({ index }) => {
   const [position, setPosition] = useState({
@@ -171,6 +172,7 @@ const SellerPage = () => {
         </div>
       </section>
       <SmartSellingSolutions />
+      <HomeValueCalculator />
     </div>
   );
 };
