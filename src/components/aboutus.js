@@ -1,191 +1,281 @@
 import React, { useEffect, useRef } from 'react';
-import HouseImg from '../images/pngtree-the-keys-in-front-of-modern-house-with-sunset-light-style-image_16176177.jpg';
-import ImageGallery from './ImageGallery.js'
-import TeamSection from './TeamSection.js';
-import { motion } from 'framer-motion';
-import TeamImg from '../images/image0.jpg'
-import Mission from '../images/158728567_34b7cafe-f88f-45de-8848-c8b796a9c23b.jpg'
-import { VelocityScroll } from './ui/velo-scroll.tsx';
-
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import '../styles/AboutUs.css';
-import img1 from '../images/269369785_11088644.png'
-import img2 from '../images/269369815_11088656.png'
-import { Timeline } from './ui/timeline.tsx';  // ✅ Correct for named export.
-import HeroSection from './HeroSection.js';
+import BgImg from '../images/pngtree-the-keys-in-front-of-modern-house-with-sunset-light-style-image_16176177.jpg'
+import ValuesSection from './ValueSection.tsx';
+import TeamImg from '../images/image0.jpg'
+
 const AboutUs = () => {
-  const firstImageRef = useRef(null);
-  const secondImageRef = useRef(null);
-  const timelineData = [
+  const { scrollY } = useScroll();
+  const backgroundY = useTransform(scrollY, [0, 1000], ['0%', '50%']);
+  const opacity = useTransform(scrollY, [0, 300], [0.5, 0.9]);
+
+  const teamMembers = [
     {
-        title: "April 2021",
-        content: (
-            <div>
-<p className="text-[#c9a760] dark:text-[#b68319] text-xs md:text-sm font-normal mb-8">
-Established in Fairfax, VA, with two agents.                </p>
-                <div className="grid grid-cols-2 gap-4">
-                    <ImageGallery />
-                </div>
-            </div>
-        ),
+      name: 'Anjana Budhathoki',
+      role: 'Principal Broker',
+      image: 'https://dtzulyujzhqiu.cloudfront.net//profiles/1702696652.jpg'
     },
     {
-        title: "2021",
-        content: (
-            <div>
-<p className="text-[#c9a760] dark:text-[#b68319] text-xs md:text-sm font-normal mb-8">
-Expanded into Washington, D.C., and Maryland, adding four more agents. Opened offices in Fairfax, VA, and Towson, MD.                 </p>
-                <div className="grid grid-cols-2 gap-4">
-                    <ImageGallery />
-                </div>
-            </div>
-        ),
-    },    {
-      title: "2022",
-      content: (
-          <div>
-<p className="text-[#c9a760] dark:text-[#b68319] text-xs md:text-sm font-normal mb-8">
-Extended presence into New England, starting in Massachusetts, and recruited four additional agents.                 </p>
-              <div className="grid grid-cols-2 gap-4">
-                  <ImageGallery />
-              </div>
-          </div>
-      ),
-  },
-  {
-    title: "2023",
-    content: (
-        <div>
-<p className="text-[#c9a760] dark:text-[#b68319] text-xs md:text-sm font-normal mb-8">
-Further expansion into New Hampshire and Rhode Island.               </p>
-            <div className="grid grid-cols-2 gap-4">
-                <ImageGallery />
-            </div>
-        </div>
-    ),
-},   
-{
-  title: "2024",
-  content: (
-      <div>
-<p className="text-[#c9a760] dark:text-[#b68319] text-xs md:text-sm font-normal mb-8">
-Entered Connecticut and Pennsylvania markets.
-               </p>
-          <div className="grid grid-cols-2 gap-4">
-              <ImageGallery />
-          </div>
-          <h3 className="text-[#c9a760] dark:text-[#b68319] text-xs md:text-sm font-normal mb-8">Currently, oNest Real Estate operates four offices and employs 30 agents, with plans for continued regional expansion.</h3>
-      </div>
-  ),
-}, // Add more items...
+      name: 'Suresh Sapkota',
+      role: 'Associate Broker',
+      image: 'https://dtzulyujzhqiu.cloudfront.net//profiles/1641091382.png'
+    },
+    {
+      name: 'Suman Mahara',
+      role: 'Supervising Broker',
+      image: 'https://dtzulyujzhqiu.cloudfront.net//profiles/1642454219.jpg'
+    },
+    {
+      name: 'Prayash Bhusal',
+      role: 'REALTOR®',
+      image: 'https://dtzulyujzhqiu.cloudfront.net/onestrealestatellc4450/profiles/1727220454_1754865.jpg'
+    },
+    {
+      name: 'Tek Narayan Yadav',
+      role: 'REALTOR®',
+      image: 'https://dtzulyujzhqiu.cloudfront.net//profiles/1661948263.jpg'
+    },
+    {
+      name: 'Deepak Sharma',
+      role: 'REALTOR®',
+      image: 'https://dtzulyujzhqiu.cloudfront.net//profiles/1640888124.jpg'
+    },
+    {
+      name: 'Purna Shahi',
+      role: 'REALTOR®',
+      image: 'https://dtzulyujzhqiu.cloudfront.net/onestrealestatellc4450/profiles/1726088020_1118640.jpg'
+    },
+    {
+      name: 'Sarah Nazeer',
+      role: 'REALTOR®',
+      image: 'https://dtzulyujzhqiu.cloudfront.net/onestrealestatellc4450/profiles/1729961165_1825979.jpg'
+    },
+    {
+      name: 'Sumit Sanjel',
+      role: 'REALTOR®',
+      image: 'https://dtzulyujzhqiu.cloudfront.net//profiles/1681753042.jpg'
+    },
+    {
+      name: 'Abhaya Karki',
+      role: 'REALTOR®',
+      image: 'https://dtzulyujzhqiu.cloudfront.net/onestrealestatellc4450/profiles/1718293487.jpg'
+    },
   ];
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY;
-      
-      if (firstImageRef.current) {
-        const firstOffset = firstImageRef.current.offsetTop;
-        const speed = 0.5;
-        const yPos = -(scrolled - firstOffset) * speed;
-        firstImageRef.current.style.transform = `translate3d(0, ${yPos}px, 0)`;
-      }
-      
-      if (secondImageRef.current) {
-        const secondOffset = secondImageRef.current.offsetTop;
-        const speed = 0.3;
-        const yPos = -(scrolled - secondOffset) * speed;
-        secondImageRef.current.style.transform = `translate3d(0, ${yPos}px, 0)`;
-      }
-    };
+  const timelineData = [
+    {
+      year: '2021',
+      title: 'Foundation',
+      description: 'Established in Fairfax, VA, with two agents.'
+    },
+    {
+      year: '2022',
+      title: 'Initial Expansion',
+      description: 'Expanded into Washington, D.C., and Maryland, adding four more agents.'
+    },
+    {
+      year: '2023',
+      title: 'Regional Growth',
+      description: 'Extended presence into New England, starting in Massachusetts.'
+    },
+    {
+      year: '2024',
+      title: 'Market Leadership',
+      description: 'Entered Connecticut and Pennsylvania markets with 30 agents.'
+    }
+  ];
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  const TimelineItem = ({ year, title, description, index }) => {
+    const [ref, inView] = useInView({
+      triggerOnce: false,
+      threshold: 0.2
+    });
+
+    return (
+      <motion.div
+        ref={ref}
+        className="timeline-item"
+        initial={{ opacity: 0, x: 100 }}
+        animate={{ opacity: inView ? 1 : 0, x: inView ? 0 : 100 }}
+        transition={{ duration: 0.6, delay: index * 0.1 }}
+      >
+        <div className="timeline-content">
+          <h3 className="year">{year}</h3>
+          <h4 className="title">{title}</h4>
+          <p className="description">{description}</p>
+        </div>
+      </motion.div>
+    );
+  };
+
+  const Section = ({ title, content, imageUrl, reverse = false }) => {
+    const [ref, inView] = useInView({
+      triggerOnce: false,
+      threshold: 0.2
+    });
+
+    return (
+      <motion.div
+        ref={ref}
+        className={`section ${reverse ? 'reverse' : ''}`}
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="section-content">
+          <motion.h2
+            initial={{ x: reverse ? 50 : -50 }}
+            animate={{ x: inView ? 0 : reverse ? 50 : -50 }}
+            transition={{ duration: 0.8 }}
+          >
+            {title}
+          </motion.h2>
+          <motion.p
+            initial={{ x: reverse ? 50 : -50 }}
+            animate={{ x: inView ? 0 : reverse ? 50 : -50 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {content}
+          </motion.p>
+        </div>
+        <motion.div
+          className="section-image"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ scale: inView ? 1 : 0.8, opacity: inView ? 1 : 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <img src={imageUrl} alt={title} />
+        </motion.div>
+      </motion.div>
+    );
+  };
 
   return (
-    <main className="aboutus-main">
-      <section className="hero-section">
-        <img
-          src={HouseImg}
-          alt="Real Estate Keys"
-          className="hero-image"
+    <div className="about-us">
+      {/* Dynamic Background */}
+      <motion.div className="dynamic-background">
+        <motion.div 
+          className="gradient-bg"
+          style={{ opacity }}
         />
-        <div className="hero-overlay">
-          <div className="hero-content">
-            <div className="text-container">
-              <div className="main-text-container">
-                <h1 className="main-heading first">Transforming lives<span className="italics"> <br /> Through</span></h1>
-                <span className="main-heading second"> Real Estate  </span>
-                <div className="line-animation"></div>
-              </div>
-              <div className="button-group">
-                <button className="btn btn-primary">Learn more</button>
-                <button className="btn btn-secondary">Explore options</button>
-              </div>
-            </div>
-          </div>
-        </div>
+        <motion.div 
+          className="parallax-bg"
+          style={{
+            y: backgroundY,
+            backgroundImage: `url(${BgImg})`,          }}
+        />
+        <div className="overlay" />
+      </motion.div>
+
+      {/* Hero Section */}
+      <section className="hero">
+        <motion.div
+          className="hero-content"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h1>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4 }}
+            >
+              Transforming Lives
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="gradient-text"
+            >
+              Through Real Estate
+            </motion.span>
+          </h1>
+          <motion.div
+            className="cta-buttons"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+          >
+            <button className="primary">Learn More</button>
+            <button className="secondary">Contact Us</button>
+          </motion.div>
+        </motion.div>
       </section>
 
-      
+      {/* Mission Section */}
+      <Section
+        title="Our Mission & Vision"
+        content="Our mission is to redefine real estate by providing a seamless and personalized experience that puts your needs first. Whether you're buying, selling, or investing, our team of passionate experts is here to guide you through every step of the journey. With innovative tools, local expertise, and an unwavering commitment to our clients, we make the complex world of real estate simple and accessible.Founded with a vision to enhance the real estate process through innovation and personalized service, oNest ensures your real estate journey is as rewarding as it is exciting. We pride ourselves on transparency, dedication, and deep community connections."
+                imageUrl={TeamImg}
+      />
 
-<section className="content-section">
-  <div className="section-container flex flex-col md:flex-row gap-8">
-    <div className="text-section w-full md:w-1/2">
-      <div className="section-header">
-        <h2>Our Mission & Vision</h2>
-        <div className="gold-line"></div>
-      </div>
-      <p>
-      Founded with a vision to enhance the real estate process through innovation and personalized service, ONEST is born to ensure that your real estate journey is as rewarding as it is exciting. We pride ourselves on our transparency, dedication, and deep connection to the Northern Virginia community. Whether you're a first-time buyer or a real handyman, we're dedicated to helping you make informed decisions and achieve your property goals.
-      </p>
-      <p>        Our mission is to redefine real estate by providing a seamless and personalized experience that puts your needs first. Whether you're buying, selling, or investing, our team of dedicated experts is here to guide you every step of the way. With cutting-edge technology, local expertise, and an unwavering commitment to our clients, we make the complex world of real estate simple and accessible.
-      </p>
-      <button className="btn btn-outline">Explore careers</button>
-    </div>
-    <div className="content-img-wrapper grid grid-cols-1 gap-4 w-full md:w-1/2">
-      <div className="content-img parallax-img" style={{ backgroundImage: `url(${Mission})` }}></div>
-    </div>
-  </div>
-</section>
+      {/* Timeline Section */}
+      <section className="timeline">
+        <h2>Our Journey</h2>
+        <div className="timeline-container">
+          {timelineData.map((item, index) => (
+            <TimelineItem key={index} {...item} index={index} />
+          ))}
+        </div>
+      </section>
+      <ValuesSection />
 
-      <Timeline data={timelineData}/>
-      <HeroSection />
-      <TeamSection />
-      <section className="join-section">
-      <motion.div 
-        className="join-content"
-        initial={{ opacity: 0, x: -50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <h2 className="join-title">Join the Real Estate Revolution</h2>
-        <p className="join-description">
-        </p>
-        <motion.button 
-          className="explore-button"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+      {/* Team Section */}
+      <section className="team-section">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
         >
-          Explore careers
-        </motion.button>
-      </motion.div>
-      
-      <motion.div 
-        className="join-image-container"
-        initial={{ opacity: 0, x: 50 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.6 }}
-      >
-        <img 
-          src={TeamImg}
-          alt="ONEST team members" 
-          className="join-image"
-        />
-      </motion.div>
-    </section>
+          Team oNest
+        </motion.h2>
+        <div className="team-grid">
+          {teamMembers.map((member, index) => (
+            <motion.div
+              key={index}
+              className="team-member"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+            >
+              <div className="member-image">
+                <img src={member.image} alt={member.name} />
+              </div>
+              <h3>{member.name}</h3>
+              <p>{member.role}</p>
+            </motion.div>
+          ))}
+        </div>
+        <button className="secondary see-all">See All Agents</button>
 
-    </main>
+      </section>
+
+      {/* Join Section */}
+      <section className="join">
+        <motion.div
+          className="join-content"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2>Join Our Team</h2>
+          <p>Be part of a dynamic team that's reshaping the real estate industry through innovation and excellence.</p>
+          <motion.button
+            className="join-button"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Explore Careers
+          </motion.button>
+        </motion.div>
+      </section>
+    </div>
   );
 };
 

@@ -18,7 +18,7 @@ const HeroSection = () => {
         <div className="hero-section">
             <div className="hero-container">
                 <div className="hero-title-section">
-                    <VelocityScroll default_velocity='5' className='hero-title-section-text' text='Redefining How Peoples Find Their Dream Home.'/>
+                    <VelocityScroll default_velocity='2' className='hero-title-section-text' text='Redefining How Peoples Find Their Dream Home.'/>
                     
                     
                 </div>

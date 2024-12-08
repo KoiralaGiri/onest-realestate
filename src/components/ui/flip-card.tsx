@@ -35,10 +35,10 @@ export default function FlipCard({
         <div className="absolute h-full w-full rounded-lg [backface-visibility:hidden]">
           <img
             src={image}
-            alt="image"
-            className="h-full w-full rounded-2xl object-cover shadow-2xl shadow-black/40"
+            alt=""
+            className="h-full w-full rounded-2xl object-cover shadow-2xl shadow-white/100"
           />
-          <div className="top-2 absolute bottom-4 left-4 text-xl font-bold text-[white]">{title}</div>
+          <div className="top-4 absolute bottom-4 left-4 text-3xl font-bold text-[#b68319]">{title}</div>
         </div>
 
         {/* Back */}

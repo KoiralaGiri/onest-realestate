@@ -10,6 +10,7 @@ import img4 from '../images/rb_26846.png'
 import './SmartSellingSolutions.js'
 import SmartSellingSolutions from './SmartSellingSolutions.js';
 import HomeValueCalculator from './home-value-calculator.tsx';
+import Exclusive from './exclusive.tsx';
 
 const Particle = ({ index }) => {
   const [position, setPosition] = useState({
@@ -162,10 +163,10 @@ const SellerPage = () => {
           </motion.div>
 
           <div className="feature-cards-container">
-            <FlipCard title='Our Mission, Your Success' image={img1} description='At oNest, we are passionate about what we do. Our mission is to ensure every client experiences a smooth, personalized, and successful transaction.'/>
-            <FlipCard title='Unmatched Expertise' image={img2} description='We pride ourselves on being one of the most efficient real estate teams, excelling in both market expertise and agent-to-transaction ratios. '/>
-            <FlipCard title='Proven Strategies' image={img3} description="Our proven strategies ensure the shortest marketing periods and the highest sales prices in the market. "/>
-            <FlipCard title='Exceeding Expectations' image={img4} description="oNest agents are among the best in the industry. When you choose oNest, you're backed by a team dedicated to exceeding expectations." />
+            <FlipCard title='Our Mission, Your Success' description='At oNest, we are passionate about what we do. Our mission is to ensure every client experiences a smooth, personalized, and successful transaction.'/>
+            <FlipCard title='Unmatched Expertise' description='We pride ourselves on being one of the most efficient real estate teams, excelling in both market expertise and agent-to-transaction ratios. '/>
+            <FlipCard title='Proven Strategies' description="Our proven strategies ensure the shortest marketing periods and the highest sales prices in the market. "/>
+            <FlipCard title='Exceeding Expectations' description="oNest agents are among the best in the industry. When you choose oNest, you're backed by a team dedicated to exceeding expectations." />
                 
              
           </div>
@@ -173,6 +174,7 @@ const SellerPage = () => {
       </section>
       <SmartSellingSolutions />
       <HomeValueCalculator />
+      <Exclusive />
     </div>
   );
 };

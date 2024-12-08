@@ -5,14 +5,15 @@ import Navbar from './components/navbar.js';
 import Footer from './components/footer.js';
 import AboutUs from './components/aboutus.js';
 import SellerPage from './components/SellerPage.js';
-
+import Listings from './components/Listing.js';
+import ToolsPage from './components/ui/tools.tsx'
 // Placeholder pages - replace with your actual page components
 const Home = () => <div className="pt-24"><HeroSection /></div>;
 const About = () => <div className="pt-24"><AboutUs /></div>;
-const Buyers = () => <div className="pt-24">Buyers Page</div>;
+const Buyers = () => <div className="pt-24"><Listings /></div>;
 const Sellers = () => <div className="pt-24"><SellerPage /></div>;
 const Communities = () => <div className="pt-24">Communities Page</div>;
-const Tools = () => <div className="pt-24">Tools Page</div>;
+const Tools = () => <div className="pt-24"><ToolsPage /></div>;
 const Contact = () => <div className="pt-24">Contact Page</div>;
 const Login = () => <div className="pt-24">Login Page</div>;
 

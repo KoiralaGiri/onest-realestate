@@ -67,7 +67,7 @@ export default function HomeValueCalculator() {
   }
 
   return (
-    <div className="max-w-7xl mx-auto p-6 ">
+    <div className="max-w-7xl mx-auto p-6 rounded-3xl bg-slate-200">
       <div className="grid md:grid-cols-2 gap-8">
         <div className="space-y-6">
           <div>

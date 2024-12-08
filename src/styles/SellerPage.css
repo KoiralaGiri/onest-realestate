@@ -280,7 +280,7 @@
 
   .why-onest-section {
     position: relative;
-    background: linear-gradient(to bottom, #dccba8, #c9a760, #dccba8);
+    background: #F9FAFB;
     overflow: hidden;
     padding: 6rem 1.5rem;
   }
@@ -301,14 +301,14 @@
   .why-onest-header {
     text-align: center;
     margin-bottom: 5rem;
-    color: white;
+    color: #DAA520;
   }
   
   .why-onest-subtitle {
     font-size: 0.875rem;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: white;
+    color: #DAA520;
     font-weight: 600;
     margin-bottom: 1rem;
   }
@@ -321,11 +321,11 @@
     background: linear-gradient(to right, hsl(0, 4%, 95%), #fbfaf9);
     -webkit-background-clip: text;
     background-clip: text;
-    color: transparent;
+    color: #DAA520;
   }
   
   .why-onest-description {
-    color: white;
+    color: #DAA520;
     font-size: 1.125rem;
     max-width: 36rem;
     margin: 0 auto;
@@ -349,7 +349,7 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
-    border: 1px solid rgba(229, 231, 235, 1);
+    border: px solid rgba(229, 231, 235, 1);
     backdrop-filter: blur(8px);
     transition: all 0.5s ease;
   }
@@ -367,6 +367,7 @@
   .feature-card:hover {
     transform: scale(1.03) translateY(-5px);
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    cursor: pointer;
   }
   
   .card-background {
