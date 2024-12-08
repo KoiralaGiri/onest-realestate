@@ -75,7 +75,7 @@ const Navbar = () => {
           <div className="desktop-right-buttons animate-fadeIn">
             <Link to="/contact" className="contact-button">
               <Send size={16} />
-              Contact oNest
+              Contact eNest
             </Link>
             <Link to="/login" className="login-button">
               Login
